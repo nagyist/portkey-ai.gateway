@@ -311,6 +311,8 @@ export interface Message {
   tool_calls?: any;
   tool_call_id?: string;
   citationMetadata?: CitationMetadata;
+  /** Reasoning details for models that support extended thinking/reasoning. (Gemini) */
+  reasoning_details?: any[];
 }
 
 export interface PromptCache {
@@ -407,6 +409,7 @@ export interface Params {
   top_k?: number;
   tools?: Tool[];
   tool_choice?: ToolChoice;
+  reasoning_effort?: 'none' | 'minimal' | 'low' | 'medium' | 'high' | string;
   response_format?: {
     type: 'json_object' | 'text' | 'json_schema';
     json_schema?: any;
